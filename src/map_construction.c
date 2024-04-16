@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:48:38 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 12:57:14 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/15 16:28:20 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	check_map_construct(t_data *data)
 	if (!check_if_retangular(data))
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
-		ft_putstr_fd("\nThe map must be rectangular\n", STDERR_FILENO);
+		ft_putstr_fd("The map must be rectangular\n", STDERR_FILENO);
 		free_map(data->map);
 		exit (EXIT_FAILURE);
 	}
 	else if (!find_walls(data))
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
-		ft_putstr_fd("\nThe map must be closed/surrounded by walls: '1'\n",
+		ft_putstr_fd("The map must be closed/surrounded by walls: '1'\n",
 			STDERR_FILENO);
 		free_map(data->map);
 		exit (EXIT_FAILURE);
@@ -32,7 +32,7 @@ void	check_map_construct(t_data *data)
 	else if (!check_pec(data))
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
-		ft_putstr_fd("\nThe map must contain 1 exit 'E'\n", STDERR_FILENO);
+		ft_putstr_fd("The map must contain 1 exit 'E'\n", STDERR_FILENO);
 		ft_putstr_fd("At least 1 collectible 'C'\n", STDERR_FILENO);
 		ft_putstr_fd("And 1 starting position 'P' to be valid\n",
 			STDERR_FILENO);

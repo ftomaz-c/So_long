@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:52:25 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/15 17:14:28 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,4 @@ void	game_init(t_data *data)
 	mlx_hook(data->win_ptr, 17, 0, &close_program, data);
 	mlx_loop_hook(data->mlx_ptr, sprites_animation, data);
 	mlx_loop(data->mlx_ptr);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	mlx_destroy_display(data->mlx_ptr);
-	free(data->mlx_ptr);
 }

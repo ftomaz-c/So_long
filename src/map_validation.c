@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:54:09 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 12:54:49 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/15 16:42:41 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_map_validity(t_data *data)
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
 		print_map(data);
-		ft_putstr_fd("\nThe map must have a valid path\n", STDERR_FILENO);
+		ft_putstr_fd("The map must have a valid path\n", STDERR_FILENO);
 		free_map(new_map);
 		exit (EXIT_FAILURE);
 	}
