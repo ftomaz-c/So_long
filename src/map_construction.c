@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:48:38 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 16:28:20 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 11:21:56 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	check_map_construct(t_data *data)
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be rectangular\n", STDERR_FILENO);
+		print_map(data);
 		free_map(data->map);
 		exit (EXIT_FAILURE);
 	}
@@ -26,6 +27,7 @@ void	check_map_construct(t_data *data)
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be closed/surrounded by walls: '1'\n",
 			STDERR_FILENO);
+		print_map(data);
 		free_map(data->map);
 		exit (EXIT_FAILURE);
 	}
@@ -36,6 +38,7 @@ void	check_map_construct(t_data *data)
 		ft_putstr_fd("At least 1 collectible 'C'\n", STDERR_FILENO);
 		ft_putstr_fd("And 1 starting position 'P' to be valid\n",
 			STDERR_FILENO);
+		print_map(data);
 		free_map(data->map);
 		exit (EXIT_FAILURE);
 	}
@@ -49,7 +52,7 @@ int	find_walls(t_data *data)
 
 	map = data->map;
 	x = 0;
-	while (x < (data->map_width - 1))
+	while (x < data->map_width)
 	{
 		if (map[0][x] != '1' || map[data->map_height - 1][x] != '1')
 			return (0);
@@ -58,7 +61,7 @@ int	find_walls(t_data *data)
 	y = 0;
 	while (y < (data->map_height - 1))
 	{
-		if (map[y][0] != '1' || map[y][data->map_width - 2] != '1')
+		if (map[y][0] != '1' || map[y][data->map_width - 1] != '1')
 			return (0);
 		y++;
 	}
@@ -72,7 +75,7 @@ int	check_if_retangular(t_data *data)
 	y = 0;
 	while (data->map[y])
 	{
-		if ((data->map_width - 1) != ft_strlen_nl(data->map[y]))
+		if (data->map_width != ft_strlen_nl(data->map[y]))
 			return (0);
 		y++;
 	}

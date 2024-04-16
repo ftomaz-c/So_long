@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:38:33 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:53:11 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 11:57:11 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ int	sprites_animation(t_data *data)
 	heart_eng(data);
 	coin_eng(data);
 	hero_eng(data);
+	mlx_do_sync(data->mlx_ptr);
 	return (0);
 }

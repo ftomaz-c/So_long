@@ -16,7 +16,7 @@ void	draw_top_outline(t_data *data, int x, int y)
 {
 	if (x == 0)
 		ft_put_img_to_window(data, data->tiles.top_left->img, x, y);
-	else if (x == data->map_width - 2)
+	else if (x == data->map_width - 1)
 		ft_put_img_to_window(data, data->tiles.top_right->img, x, y);
 	else
 		ft_put_img_to_window(data, data->tiles.top->img, x, y);
@@ -26,7 +26,7 @@ void	draw_bottom_outline(t_data *data, int x, int y)
 {
 	if (x == 0)
 		ft_put_img_to_window(data, data->tiles.bottom_left->img, x, y);
-	else if (x == data->map_width - 2)
+	else if (x == data->map_width - 1)
 		ft_put_img_to_window(data, data->tiles.bottom_right->img, x, y);
 	else
 		ft_put_img_to_window(data, data->tiles.bottom->img, x, y);
@@ -42,7 +42,7 @@ void	draw_outline(t_data *data, int x, int y)
 	{
 		if (x == 0)
 			ft_put_img_to_window(data, data->tiles.left->img, x, y);
-		else if (x == data->map_width - 2)
+		else if (x == data->map_width - 1)
 			ft_put_img_to_window(data, data->tiles.right->img, x, y);
 		else
 			ft_put_img_to_window(data, data->tiles.middle->img, x, y);
@@ -71,10 +71,10 @@ void	spawn_map(t_data *data)
 	y = 0;
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	data->nbr_c = 0;
-	while (data->map[y])
+	while (y < data->map_height)
 	{
 		x = 0;
-		while (data->map[y][x])
+		while (x < data->map_width)
 		{
 			put_img(data, x, y);
 			x++;

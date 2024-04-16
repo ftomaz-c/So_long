@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:54:09 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 16:42:41 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 11:33:05 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_map_validity(t_data *data)
 	if (!new_map)
 		return ;
 	y = 0;
-	while (data->map[y])
+	while (y < data->map_height)
 	{
 		new_map[y] = ft_strdup(data->map[y]);
 		y++;

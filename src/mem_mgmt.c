@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:01:00 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 17:15:55 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:19:51 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	free_image(t_data *data, t_img **image)
 		if ((*image)->img != NULL)
 		{
 			mlx_destroy_image(data->mlx_ptr, (*image)->img);
-			(*image)->img = NULL;
 		}
-		free(*image);
-		*image = NULL;
 	}
 }
 
@@ -45,8 +42,6 @@ void	free_images(t_data *data)
 	int	i;
 
 	i = 0;
-	printf("heart_frames: %i\n", data->collectibles.heart.frame);
-	printf("coin_frames: %i\n", data->collectibles.coin.frame);
 	while (data->collectibles.heart.heart[i])
 	{
 		free_image(data, &data->collectibles.heart.heart[i]);

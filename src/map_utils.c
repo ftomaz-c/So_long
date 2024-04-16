@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:44:43 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:42:47 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 11:30:14 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	get_position(t_data *data, int *x_pos, int *y_pos, char map_char)
 	int	y;
 
 	y = 0;
-	while (data->map[y])
+	while (y < data->map_height)
 	{
 		x = 0;
-		while (data->map[y][x])
+		while (x < data->map_width)
 		{
 			if (data->map[y][x] == map_char)
 			{

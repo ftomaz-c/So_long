@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 17:14:28 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 12:09:10 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	init_map(t_data *data)
 	data->tiles.bottom = ft_make_img(BOTTOM, data);
 	data->tiles.center = ft_make_img(CENTER, data);
 	data->tiles.middle = ft_make_img(MIDDLE, data);
-	data->tiles.stairs.stairs = ft_make_img(STAIRS, data);
 }
 
 void	loading_imgs(t_data *data)
@@ -72,14 +71,16 @@ void	loading_imgs(t_data *data)
 
 void	game_init(t_data *data)
 {
-	Display	*display;
-	Screen	*screen;
+	//Display	*display;
+	//Screen	*screen;
 
-	display = XOpenDisplay(NULL);
+	/*display = XOpenDisplay(NULL);
 	screen = DefaultScreenOfDisplay(display);
 	data->screen_width = screen->width - 100;
 	data->screen_height = screen->height - 100;
-	XCloseDisplay(display);
+	XCloseDisplay(display);*/
+	data->screen_width = data->map_width * PIXEL_SIZE;
+	data->screen_height = data->map_height * PIXEL_SIZE;
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		return ;
