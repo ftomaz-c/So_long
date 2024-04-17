@@ -6,11 +6,18 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:56:45 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:52:16 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:33:54 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	map_exit_failure(t_data *data)
+{
+	print_map(data);
+	free_map(data->map);
+	exit (EXIT_FAILURE);
+}
 
 void	add_hero(t_data *data)
 {

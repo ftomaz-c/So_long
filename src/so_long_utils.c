@@ -6,11 +6,29 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:58:35 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 17:35:48 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:57:30 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	display_size(t_data *data)
+{
+	Display	*display;
+	Screen	*screen;
+
+	display = XOpenDisplay(NULL);
+	screen = DefaultScreenOfDisplay(display);
+	data->screen_width = screen->width - 100;
+	data->screen_height = screen->height - 100;
+	XCloseDisplay(display);
+	if (data->map_width * PIXEL_SIZE < data->screen_width
+		&& data->map_height * PIXEL_SIZE < data->screen_height)
+	{
+		data->screen_width = data->map_width * PIXEL_SIZE;
+		data->screen_height = data->map_height * PIXEL_SIZE;
+	}
+}
 
 t_img	*ft_make_img(char *path, t_data *data)
 {
@@ -25,35 +43,6 @@ t_img	*ft_make_img(char *path, t_data *data)
 	image->addr = mlx_get_data_addr(image->img, &(image->bits_per_pixel), \
 				&(image->line_lenght), &(image->endian));
 	return (image);
-}
-
-void	ft_put_img_to_window(t_data *data, void *img, double x, double y)
-{
-	int	width;
-	int	height;
-
-	width = (data->screen_width - (data->map_width * PIXEL_SIZE)) / 2;
-	height = (data->screen_height - (data->map_height * PIXEL_SIZE)) / 2;
-	if (data->map_width * PIXEL_SIZE > data->screen_width)
-	{
-		width = (data->hero.x_position * PIXEL_SIZE)
-			- (data->screen_width / 2);
-		width = fmax(0, fmin(width, data->map_width
-					* PIXEL_SIZE - data->screen_width));
-		width *= -1;
-	}
-	if (data->map_height * PIXEL_SIZE > data->screen_height)
-	{
-		height = (data->hero.y_position * PIXEL_SIZE)
-			- (data->screen_height / 2);
-		height = fmax(0, fmin(height, data->map_height
-					* PIXEL_SIZE - data->screen_height));
-		height *= -1;
-	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img,
-		(x * PIXEL_SIZE) + width, (y * PIXEL_SIZE) + height);
-	//mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img, x * PIXEL_SIZE,
-	//	y * PIXEL_SIZE);
 }
 
 unsigned int	timer(void)

@@ -13,6 +13,7 @@ SRC :=	src/main.c \
 		src/move_hero.c \
 		src/event_handling.c \
 		src/so_long_utils.c \
+		src/so_long_utils2.c \
 		src/spawn_map.c \
 		src/spawn_collectibles.c \
 		src/sprite_animation.c \

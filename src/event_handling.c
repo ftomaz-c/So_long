@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:43:50 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 12:10:42 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:44:59 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	close_program(t_data *data)
 	free_assets(data);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
-	free_map(data->map);
 	free(data->mlx_ptr);
+	free_map(data->map);
 	exit(EXIT_SUCCESS);
 }
 

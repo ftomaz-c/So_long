@@ -59,8 +59,8 @@ void	put_img(t_data *data, int x, int y)
 		ft_put_img_to_window(data, data->tiles.door.door[0]->img, x, y);
 	else if (data->map[y][x] == '0')
 		ft_put_img_to_window(data, data->tiles.center->img, x, y);
-	ft_put_img_to_window(data, data->hero.self->img, data->hero.x_position
-		+ data->hero.x_frame, data->hero.y_position + data->hero.y_frame);
+	ft_put_img_to_window(data, data->hero.self->img, data->hero.x_position,
+		data->hero.y_position);
 }
 
 void	spawn_map(t_data *data)

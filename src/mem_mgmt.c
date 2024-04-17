@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:01:00 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 11:50:14 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:38:01 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	free_collectibles(t_data *data)
 void	free_hero(t_data *data)
 {
 	int	i;
-	
+
 	free_image(data, &data->hero.hero_back);
 	free_image(data, &data->hero.hero_front);
 	i = 0;

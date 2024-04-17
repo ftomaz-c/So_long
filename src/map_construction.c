@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:48:38 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 11:21:56 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 14:34:34 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,14 @@ void	check_map_construct(t_data *data)
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be rectangular\n", STDERR_FILENO);
-		print_map(data);
-		free_map(data->map);
-		exit (EXIT_FAILURE);
+		map_exit_failure(data);
 	}
 	else if (!find_walls(data))
 	{
 		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be closed/surrounded by walls: '1'\n",
 			STDERR_FILENO);
-		print_map(data);
-		free_map(data->map);
-		exit (EXIT_FAILURE);
+		map_exit_failure(data);
 	}
 	else if (!check_pec(data))
 	{
@@ -38,9 +34,7 @@ void	check_map_construct(t_data *data)
 		ft_putstr_fd("At least 1 collectible 'C'\n", STDERR_FILENO);
 		ft_putstr_fd("And 1 starting position 'P' to be valid\n",
 			STDERR_FILENO);
-		print_map(data);
-		free_map(data->map);
-		exit (EXIT_FAILURE);
+		map_exit_failure(data);
 	}
 }
 
