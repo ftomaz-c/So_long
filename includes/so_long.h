@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:47:47 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 12:18:40 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:04:01 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@
 # define DOOR_3 "src/assets/tiles/door/small_door3.xpm"
 # define DOOR_4 "src/assets/tiles/door/small_door4.xpm"
 
-# define STAIRS "src/assets/tiles/stairs.xpm"
 # define MAX_COLLECTIBLES 100
 
 typedef struct s_img
@@ -145,12 +144,6 @@ typedef struct s_collectibles
 	int				num_c;
 }	t_collectibles;
 
-typedef struct s_stairs
-{
-	t_img	*stairs;
-	int		platforms;
-}	t_stairs;
-
 typedef struct s_hero
 {
 	t_img	*self;
@@ -180,7 +173,6 @@ typedef struct s_tiles
 	t_img		*center;
 	t_img		*middle;
 	t_door		door;
-	t_stairs	stairs;
 }				t_tiles;
 
 typedef struct s_data
@@ -197,6 +189,7 @@ typedef struct s_data
 	int				nbr_e;
 	int				player;
 	int				exit;
+	int				is_running;
 	t_tiles			tiles;
 	t_hero			hero;
 	t_collectibles	collectibles;
@@ -214,6 +207,7 @@ void				move_hero_up(t_data *data);
 void				move_hero_down(t_data *data);
 void				spawn_collectibles(t_data *data, int x, int y);
 void				check_hero_addr(t_data *data, t_hero *hero);
+void				free_assets(t_data *data);
 
 /*error.c*/
 void				check_errors(int argc, char **argv, t_data *data);
@@ -251,7 +245,6 @@ void				animate(t_data *data, void *img, int x_position,
 unsigned int		timer(void);
 void				print_map(t_data *data);
 int					ft_strlen_nl(char *str);
-void				check_map_construct(t_data *data);
 int					find_walls(t_data *data);
 int					check_if_retangular(t_data *data);
 int					check_pec(t_data *data);

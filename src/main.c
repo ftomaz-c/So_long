@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:53:22 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:53:16 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:04:24 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(t_data));
+	data.is_running = 1;
 	check_errors(argc, argv, &data);
 	check_map(&data);
 	game_init(&data);

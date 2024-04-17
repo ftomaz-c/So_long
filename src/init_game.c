@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 12:09:10 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:11:15 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,14 @@ void	loading_imgs(t_data *data)
 
 void	game_init(t_data *data)
 {
-	//Display	*display;
-	//Screen	*screen;
+	Display	*display;
+	Screen	*screen;
 
-	/*display = XOpenDisplay(NULL);
+	display = XOpenDisplay(NULL);
 	screen = DefaultScreenOfDisplay(display);
 	data->screen_width = screen->width - 100;
 	data->screen_height = screen->height - 100;
-	XCloseDisplay(display);*/
-	data->screen_width = data->map_width * PIXEL_SIZE;
-	data->screen_height = data->map_height * PIXEL_SIZE;
+	XCloseDisplay(display);
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		return ;
@@ -90,8 +88,12 @@ void	game_init(t_data *data)
 		return ;
 	loading_imgs(data);
 	spawn_map(data);
+	/*if (data->is_running)
+	{
+		printf("is_running: %i\n", data->is_running);
+		mlx_loop_hook(data->mlx_ptr, &sprites_animation, data);
+	}*/
 	mlx_hook(data->win_ptr, 2, 1L << 0, &deal_hero_key, data);
-	mlx_hook(data->win_ptr, 17, 0, &close_program, data);
-	mlx_loop_hook(data->mlx_ptr, sprites_animation, data);
 	mlx_loop(data->mlx_ptr);
+	mlx_hook(data->win_ptr, 17, 0, &close_program, data);
 }

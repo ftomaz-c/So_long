@@ -69,12 +69,11 @@ void	spawn_map(t_data *data)
 	int	y;
 
 	y = 0;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	data->nbr_c = 0;
-	while (y < data->map_height)
+	while (y < data->map_height && data->is_running)
 	{
 		x = 0;
-		while (x < data->map_width)
+		while (x < data->map_width && data->is_running)
 		{
 			put_img(data, x, y);
 			x++;

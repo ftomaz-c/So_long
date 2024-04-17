@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:58:35 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 12:18:43 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/16 17:35:48 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_img	*ft_make_img(char *path, t_data *data)
 	int		width;
 	int		height;
 
-	image = malloc(sizeof(t_img));
+	image = ft_calloc(sizeof(t_img), 1);
 	if (!image)
 		return (0);
 	image->img = mlx_xpm_file_to_image(data->mlx_ptr, path, &width, &height);
@@ -29,7 +29,7 @@ t_img	*ft_make_img(char *path, t_data *data)
 
 void	ft_put_img_to_window(t_data *data, void *img, double x, double y)
 {
-	/*int	width;
+	int	width;
 	int	height;
 
 	width = (data->screen_width - (data->map_width * PIXEL_SIZE)) / 2;
@@ -51,9 +51,9 @@ void	ft_put_img_to_window(t_data *data, void *img, double x, double y)
 		height *= -1;
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img,
-		(x * PIXEL_SIZE) + width, (y * PIXEL_SIZE) + height);*/
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img, x * PIXEL_SIZE,
-		y * PIXEL_SIZE);
+		(x * PIXEL_SIZE) + width, (y * PIXEL_SIZE) + height);
+	//mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, img, x * PIXEL_SIZE,
+	//	y * PIXEL_SIZE);
 }
 
 unsigned int	timer(void)

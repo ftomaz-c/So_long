@@ -6,11 +6,21 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:43:50 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:53:27 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 12:10:42 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	close_program(t_data *data)
+{
+	free_assets(data);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_display(data->mlx_ptr);
+	free_map(data->map);
+	free(data->mlx_ptr);
+	exit(EXIT_SUCCESS);
+}
 
 int	deal_hero_key(int key, t_data *data)
 {
@@ -23,6 +33,9 @@ int	deal_hero_key(int key, t_data *data)
 	else if (key == XK_s || key == XK_S || key == XK_Down)
 		move_hero_down(data);
 	if (key == XK_Escape)
+	{
+		data->is_running = 0;
 		close_program(data);
+	}
 	return (key);
 }

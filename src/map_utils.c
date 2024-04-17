@@ -6,11 +6,25 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:44:43 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 11:30:14 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/17 11:46:24 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	map = NULL;
+}
 
 void	print_map(t_data *data)
 {
