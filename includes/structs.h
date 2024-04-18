@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:25:25 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 14:26:01 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 18:56:33 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,16 @@ typedef struct s_collectibles
 
 typedef struct s_hero
 {
-	t_img	*self;
-	t_img	*hero_front;
-	t_img	*hero_back;
-	t_img	*hero_left[4];
-	t_img	*hero_right[4];
-	int		x_position;
-	int		y_position;
-	int		move_frame;
-	int		collectibles;
+	t_img			*self;
+	t_img			*hero_front;
+	t_img			*hero_back;
+	t_img			*hero_left[4];
+	t_img			*hero_right[4];
+	int				x_position;
+	int				y_position;
+	int				move_frame;
+	int				collectibles;
+	unsigned int	move_num;
 }				t_hero;
 
 typedef struct s_tiles

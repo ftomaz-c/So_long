@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_construction.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:48:38 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 14:34:34 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 20:53:14 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void	check_map_construct(t_data *data)
 {
 	if (!check_if_retangular(data))
 	{
-		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
+		ft_putstr_fd("Error: Not a Valid Map\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be rectangular\n", STDERR_FILENO);
 		map_exit_failure(data);
 	}
 	else if (!find_walls(data))
 	{
-		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
+		ft_putstr_fd("Error: Not a Valid Map\n", STDERR_FILENO);
 		ft_putstr_fd("The map must be closed/surrounded by walls: '1'\n",
 			STDERR_FILENO);
 		map_exit_failure(data);
 	}
 	else if (!check_pec(data))
 	{
-		ft_putstr_fd("Error: Not a Valid Map\n\n", STDERR_FILENO);
+		ft_putstr_fd("Error: Not a Valid Map\n", STDERR_FILENO);
 		ft_putstr_fd("The map must contain 1 exit 'E'\n", STDERR_FILENO);
 		ft_putstr_fd("At least 1 collectible 'C'\n", STDERR_FILENO);
 		ft_putstr_fd("And 1 starting position 'P' to be valid\n",
@@ -67,7 +67,7 @@ int	check_if_retangular(t_data *data)
 	int	y;
 
 	y = 0;
-	while (data->map[y])
+	while (data->map && data->map[y])
 	{
 		if (data->map_width != ft_strlen_nl(data->map[y]))
 			return (0);

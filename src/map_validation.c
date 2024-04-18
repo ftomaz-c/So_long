@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:54:09 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 11:33:05 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 20:48:21 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	check_map_validity(t_data *data)
 		y++;
 	}
 	new_map[y] = NULL;
+	data->exit = 1;
 	ft_flood_fill(data, data->hero.x_position, data->hero.y_position, new_map);
 	if (data->nbr_c != 0 || data->exit != 0)
 	{
@@ -35,6 +36,7 @@ void	check_map_validity(t_data *data)
 		print_map(data);
 		ft_putstr_fd("The map must have a valid path\n", STDERR_FILENO);
 		free_map(new_map);
+		free_map(data->map);
 		exit (EXIT_FAILURE);
 	}
 	free_map(new_map);
@@ -42,7 +44,7 @@ void	check_map_validity(t_data *data)
 
 void	ft_flood_fill(t_data *data, int x, int y, char **map)
 {
-	if (map[y][x] == '1' || map[y][x] == 'F' || map[y][x] == 'B')
+	if (map[y][x] == '1' || map[y][x] == 'F')
 		return ;
 	else if (map[y][x] == 'C')
 		data->nbr_c--;

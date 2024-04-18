@@ -3,33 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   map_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:58:31 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/16 11:34:42 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 20:57:57 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	invalid_map(t_data *data, char *line, int fd)
+{
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	if (line)
+		free(line);
+	if (data->map)
+		free_map(data->map);
+	close (fd);
+	ft_putstr_fd("Error: invalid map\n", STDERR_FILENO);
+	exit (EXIT_FAILURE);
+}
 
 int	count_width_height(char *file_name, t_data *data)
 {
 	int		fd;
 	char	*line;
 
+	data->map_height = 0;
 	fd = open(file_name, O_RDONLY, 0);
 	if (fd <= 0)
 		return (0);
 	line = get_next_line(fd);
+	if (!line || line[0] == '\n')
+		invalid_map(data, line, fd);
 	data->map_width = ft_strlen_nl(line);
-	free(line);
-	data->map_height = 1;
-	line = get_next_line(fd);
 	while (line != 0)
 	{
 		data->map_height++;
 		free(line);
 		line = get_next_line(fd);
+		if (line && line[0] == '\n')
+			invalid_map(data, line, fd);
 	}
 	free(line);
 	close (fd);
@@ -38,8 +56,6 @@ int	count_width_height(char *file_name, t_data *data)
 
 int	alloc_mem_map(char *file_name, t_data *data)
 {
-	int		i;
-
 	if (!count_width_height(file_name, data))
 		return (0);
 	data->map = ft_calloc(sizeof(char *), data->map_height + 1);
@@ -48,17 +64,6 @@ int	alloc_mem_map(char *file_name, t_data *data)
 		free_map(data->map);
 		exit(EXIT_FAILURE);
 	}
-	i = 0;
-	while (i < data->map_height)
-	{
-		data->map[i] = ft_calloc(sizeof(char), data->map_width + 2);
-		if (!data->map[i])
-		{
-			free_map(data->map);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
 	return (1);
 }
 
@@ -66,7 +71,6 @@ int	read_map(char *file_name, t_data *data)
 {
 	int		fd;
 	char	*line;
-	int		x;
 	int		y;
 
 	if (!alloc_mem_map(file_name, data))
@@ -78,9 +82,7 @@ int	read_map(char *file_name, t_data *data)
 	line = get_next_line(fd);
 	while (line != 0)
 	{
-		x = -1;
-		while (line[++x])
-			data->map[y][x] = line[x];
+		data->map[y] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
 		y++;

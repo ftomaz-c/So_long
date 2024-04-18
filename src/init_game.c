@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 14:24:41 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 18:54:02 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_hero(t_data *data)
 	hero->hero_right[2] = ft_make_img(HERO_RIGHT_3, data);
 	hero->hero_right[3] = ft_make_img(HERO_RIGHT_4, data);
 	hero->move_frame = 0;
+	hero->move_num = 0;
 	hero->self = hero->hero_front;
 }
 
@@ -78,12 +79,8 @@ void	game_init(t_data *data)
 		return ;
 	loading_imgs(data);
 	spawn_map(data);
-	/*if (data->is_running)
-	{
-		printf("is_running: %i\n", data->is_running);
-		mlx_loop_hook(data->mlx_ptr, &sprites_animation, data);
-	}*/
 	mlx_hook(data->win_ptr, 2, 1L << 0, &deal_hero_key, data);
+	//mlx_loop_hook(data->mlx_ptr, &sprites_animation, data);
 	mlx_hook(data->win_ptr, 17, 0, &close_program, data);
 	mlx_loop(data->mlx_ptr);
 }

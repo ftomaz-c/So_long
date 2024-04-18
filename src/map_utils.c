@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:44:43 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 11:46:24 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 21:00:13 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,26 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
-	while (map[i])
+	if (map)
 	{
-		free(map[i]);
-		i++;
+		while (map[i])
+		{
+			free(map[i]);
+			i++;
+		}
+		free(map);
 	}
-	free(map);
 	map = NULL;
 }
 
 void	print_map(t_data *data)
 {
-	int	x;
 	int	y;
 
 	y = 0;
-	while (y < data->map_height)
+	while (data->map[y])
 	{
-		x = 0;
-		while (x < data->map_width)
-		{
-			ft_printf("%c", data->map[y][x]);
-			x++;
-		}
+		ft_printf("%s", data->map[y]);
 		y++;
 	}
 	ft_printf("\n");
@@ -47,13 +44,13 @@ void	print_map(t_data *data)
 
 void	print_info(t_data *data)
 {
-	printf("prev_x_position: %c\n",
+	ft_printf("prev_x_position: %c\n",
 		data->map[data->hero.y_position][data->hero.x_position - 1]);
-	printf("prev_y_position: %c\n",
+	ft_printf("prev_y_position: %c\n",
 		data->map[data->hero.y_position - 1][data->hero.x_position]);
-	printf("next_x_position: %c\n",
+	ft_printf("next_x_position: %c\n",
 		data->map[data->hero.y_position][data->hero.x_position + 1]);
-	printf("next_y_position: %c\n",
+	ft_printf("next_y_position: %c\n",
 		data->map[data->hero.y_position + 1][data->hero.x_position]);
 	print_map(data);
 }
@@ -63,7 +60,7 @@ int	ft_strlen_nl(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
+	while (str[i] && str[i] != '\0' && str[i] != '\n')
 		i++;
 	return (i);
 }

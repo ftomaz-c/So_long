@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_construction_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:56:45 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 14:33:54 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/18 19:22:10 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	map_exit_failure(t_data *data)
 {
+	ft_printf("\n");
 	print_map(data);
 	free_map(data->map);
 	exit (EXIT_FAILURE);
