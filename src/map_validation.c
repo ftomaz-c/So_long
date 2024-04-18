@@ -6,7 +6,7 @@
 /*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:54:09 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 20:48:21 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:09:10 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	check_map_validity(t_data *data)
 		y++;
 	}
 	new_map[y] = NULL;
-	data->exit = 1;
 	ft_flood_fill(data, data->hero.x_position, data->hero.y_position, new_map);
 	if (data->nbr_c != 0 || data->exit != 0)
 	{

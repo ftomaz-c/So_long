@@ -6,7 +6,7 @@
 /*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 18:54:02 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:10:40 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	game_init(t_data *data)
 	loading_imgs(data);
 	spawn_map(data);
 	mlx_hook(data->win_ptr, 2, 1L << 0, &deal_hero_key, data);
-	//mlx_loop_hook(data->mlx_ptr, &sprites_animation, data);
 	mlx_hook(data->win_ptr, 17, 0, &close_program, data);
 	mlx_loop(data->mlx_ptr);
 }
+//mlx_loop_hook(data->mlx_ptr, &sprites_animation, data);

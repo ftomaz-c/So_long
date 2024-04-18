@@ -6,7 +6,7 @@
 /*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:58:31 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 20:57:57 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:09:23 by ftomaz-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	read_map(char *file_name, t_data *data)
 
 void	check_map(t_data *data)
 {
+	data->exit = 1;
 	check_map_construct(data);
 	check_map_validity(data);
 }
