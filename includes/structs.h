@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:25:25 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 18:56:33 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:59:24 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ typedef struct s_data
 	int				nbr_e;
 	int				player;
 	int				exit;
-	int				is_running;
 	t_tiles			tiles;
 	t_hero			hero;
 	t_collectibles	collectibles;

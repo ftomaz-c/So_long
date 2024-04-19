@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_handling.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:58:31 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 21:09:23 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:29:04 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	invalid_map(t_data *data, char *line, int fd)
 	if (data->map)
 		free_map(data->map);
 	close (fd);
-	ft_putstr_fd("Error: invalid map\n", STDERR_FILENO);
+	ft_putstr_fd("Error: invalid map format\n", STDERR_FILENO);
+	ft_putstr_fd("The file must contain only the map. Check for extra lines\n",
+		STDERR_FILENO);
 	exit (EXIT_FAILURE);
 }
 
@@ -88,6 +90,10 @@ int	read_map(char *file_name, t_data *data)
 		y++;
 	}
 	free(line);
+	if (data->map[data->map_height - 1]
+		[ft_strlen(data->map[data->map_height - 1]) - 1] == '\n')
+		invalid_map(data, NULL, fd);
+	close(fd);
 	return (1);
 }
 

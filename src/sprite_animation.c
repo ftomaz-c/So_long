@@ -6,13 +6,31 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 12:38:33 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 12:43:04 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/19 11:49:30 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	heart_eng(t_data *data)
+void	open_door(t_data *data)
+{
+	int		i;
+	t_door	*door;
+
+	door = &(data->tiles.door);
+	i = 0;
+	while (i < 4)
+	{
+		ft_put_img_to_window(data, door->door[i]->img, door->x_position,
+			door->y_position);
+		mlx_do_sync(data->mlx_ptr);
+		usleep(300000);
+		i++;
+	}
+	close_program(data);
+}
+
+/*int	heart_eng(t_data *data)
 {
 	static unsigned int	i = 0;
 
@@ -70,28 +88,10 @@ int	hero_eng(t_data *data)
 	return (0);
 }
 
-void	open_door(t_data *data)
-{
-	int		i;
-	t_door	*door;
-
-	door = &(data->tiles.door);
-	i = 0;
-	while (i < 4)
-	{
-		ft_put_img_to_window(data, door->door[i]->img, door->x_position,
-			door->y_position);
-		mlx_do_sync(data->mlx_ptr);
-		usleep(300000);
-		i++;
-	}
-	close_program(data);
-}
-
 int	sprites_animation(t_data *data)
 {
 	heart_eng(data);
 	coin_eng(data);
 	hero_eng(data);
 	return (0);
-}
+}*/

@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:31:27 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 21:10:40 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/19 11:51:54 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+/*hero->hero_left[1] = ft_make_img(HERO_LEFT_2, data);
+	hero->hero_left[2] = ft_make_img(HERO_LEFT_3, data);
+	hero->hero_left[3] = ft_make_img(HERO_LEFT_4, data);
+	hero->hero_right[1] = ft_make_img(HERO_RIGHT_2, data);
+	hero->hero_right[2] = ft_make_img(HERO_RIGHT_3, data);
+	hero->hero_right[3] = ft_make_img(HERO_RIGHT_4, data);*/
 
 void	init_hero(t_data *data)
 {
@@ -21,13 +28,7 @@ void	init_hero(t_data *data)
 	hero->hero_back = ft_make_img(HERO_BACK, data);
 	hero->hero_front = ft_make_img(HERO_FRONT, data);
 	hero->hero_left[0] = ft_make_img(HERO_LEFT_1, data);
-	hero->hero_left[1] = ft_make_img(HERO_LEFT_2, data);
-	hero->hero_left[2] = ft_make_img(HERO_LEFT_3, data);
-	hero->hero_left[3] = ft_make_img(HERO_LEFT_4, data);
 	hero->hero_right[0] = ft_make_img(HERO_RIGHT_1, data);
-	hero->hero_right[1] = ft_make_img(HERO_RIGHT_2, data);
-	hero->hero_right[2] = ft_make_img(HERO_RIGHT_3, data);
-	hero->hero_right[3] = ft_make_img(HERO_RIGHT_4, data);
 	hero->move_frame = 0;
 	hero->move_num = 0;
 	hero->self = hero->hero_front;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:43:50 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 18:54:13 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/19 13:00:31 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int	deal_hero_key(int key, t_data *data)
 	else if (key == XK_s || key == XK_S || key == XK_Down)
 		move_hero_down(data);
 	if (key == XK_Escape)
-	{
-		data->is_running = 0;
 		close_program(data);
-	}
 	return (key);
 }

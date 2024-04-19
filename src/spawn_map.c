@@ -70,14 +70,15 @@ void	spawn_map(t_data *data)
 
 	y = 0;
 	data->nbr_c = 0;
-	while (y < data->map_height && data->is_running)
+	while (y < data->map_height)
 	{
 		x = 0;
-		while (x < data->map_width && data->is_running)
+		while (x < data->map_width)
 		{
 			put_img(data, x, y);
 			x++;
 		}
 		y++;
 	}
+	print_movements(data);
 }

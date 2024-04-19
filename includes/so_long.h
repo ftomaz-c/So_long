@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 11:47:47 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/17 14:43:57 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/19 12:59:56 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,11 @@ void				move_hero_to_left(t_data *data);
 void				move_hero_to_right(t_data *data);
 
 /*so_long_utils.c*/
+//unsigned int		timer(void);
 void				check_hero_addr(t_data *data, t_hero *hero);
-unsigned int		timer(void);
 t_img				*ft_make_img(char *path, t_data *data);
 void				display_size(t_data *data);
+void				print_movements(t_data *data);
 
 /*so_long_utils2.c*/
 void				ft_put_img_to_window(t_data *data, void *img, double x,
@@ -111,10 +112,10 @@ void				draw_bottom_outline(t_data *data, int x, int y);
 void				draw_top_outline(t_data *data, int x, int y);
 
 /*sprite_animation.c*/
-int					sprites_animation(t_data *data);
+//int					sprites_animation(t_data *data);
+//int					hero_eng(t_data *data);
+//int					coin_eng(t_data *data);
+//int					heart_eng(t_data *data);
 void				open_door(t_data *data);
-int					hero_eng(t_data *data);
-int					coin_eng(t_data *data);
-int					heart_eng(t_data *data);
 
 #endif

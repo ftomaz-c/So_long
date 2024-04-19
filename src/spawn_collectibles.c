@@ -6,7 +6,7 @@
 /*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:54:09 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/15 15:54:46 by ftomazc          ###   ########.fr       */
+/*   Updated: 2024/04/19 11:48:44 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	spawn_collectibles(t_data *data, int x, int y)
 		if (collectible_type(&(collectibles->c_position[i]), x, y, 'K'))
 			ft_put_img_to_window(data, data->collectibles.key.key->img, x, y);
 		else if (collectible_type(&(collectibles->c_position[i]), x, y, 'H'))
-			ft_put_img_to_window(data, data->collectibles.heart.heart[7]->img,
+			ft_put_img_to_window(data, data->collectibles.heart.heart[0]->img,
 				x, y);
 		else if (collectible_type(&(collectibles->c_position[i]), x, y, 'C'))
-			ft_put_img_to_window(data, data->collectibles.coin.coin[9]->img,
+			ft_put_img_to_window(data, data->collectibles.coin.coin[0]->img,
 				x, y);
 		i++;
 	}

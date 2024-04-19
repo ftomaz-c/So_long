@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_hero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftomaz-c <ftomaz-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftomazc < ftomaz-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 20:25:26 by ftomazc           #+#    #+#             */
-/*   Updated: 2024/04/18 21:02:25 by ftomaz-c         ###   ########.fr       */
+/*   Updated: 2024/04/19 12:04:07 by ftomazc          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	move_hero_to_right(t_data *data)
 			if (*next == 'C')
 				hero->collectibles++;
 			hero->x_position++;
-			ft_printf("number of movements: %u\n", ++hero->move_num);
+			hero->move_num++;
 			data->map[hero->y_position][hero->x_position] = 'P';
 		}
 		spawn_map(data);
@@ -63,7 +63,7 @@ void	move_hero_to_left(t_data *data)
 			if (*next == 'C')
 				hero->collectibles++;
 			hero->x_position--;
-			ft_printf("number of movements: %u\n", ++hero->move_num);
+			hero->move_num++;
 			data->map[hero->y_position][hero->x_position] = 'P';
 		}
 		spawn_map(data);
@@ -92,7 +92,7 @@ void	move_hero_up(t_data *data)
 			if (*next == 'C')
 				hero->collectibles++;
 			hero->y_position--;
-			ft_printf("number of movements: %u\n", ++hero->move_num);
+			hero->move_num++;
 			data->map[hero->y_position][hero->x_position] = 'P';
 		}
 		spawn_map(data);
@@ -121,7 +121,7 @@ void	move_hero_down(t_data *data)
 			if (*next == 'C')
 				hero->collectibles++;
 			hero->y_position++;
-			ft_printf("number of movements: %u\n", ++hero->move_num);
+			hero->move_num++;
 			data->map[hero->y_position][hero->x_position] = 'P';
 		}
 		spawn_map(data);
